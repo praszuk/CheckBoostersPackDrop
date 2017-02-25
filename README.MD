@@ -1,0 +1,2 @@
+A simple program to check card package on my account, so if you want use of yourself you have to edit code :) Main.java. 
+Wrzucam to tak o na naszego gita na githuba nie zamierzam raczej. Bo napisane nie obiektowo pod wlasne potrzeby i "brzydko" a robić refaktoryzacje tak średnio mi sie chce chyba bo i tak to co jest teraz mi starcza ewentualnie moglo by dzialac szybciej ale to juz teoretycznie nie ode mnie zalezne.
