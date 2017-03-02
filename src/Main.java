@@ -7,15 +7,16 @@ import javax.swing.JOptionPane;
 
 public class Main {
 	
-	static String getInfo(int account){
+	static String getInfo(long account){
 		String jsonFromURL = "";
 		try {
-			jsonFromURL = UrlReader.getText("http://steamcommunity.com/id/lizakfake"+account+"/inventory/json/753/6");
-		} catch (Exception e) {
+			jsonFromURL = UrlReader.getText("http://steamcommunity.com/inventory/"+account+"/753/6?l=english&count=5000");
+		} catch (Exception e){
 			e.printStackTrace();
 		}
-		//System.out.println(jsonFromURL); //print source from site.
-		Pattern p = Pattern.compile("\"name\":\"(Booster Pack)|(Pakiet kart)\"");
+		
+		//Pattern p = Pattern.compile("\"name\":\"(Booster Pack)|(Pakiet kart)\"");  //old pattern
+		Pattern p = Pattern.compile("\"type\":\"Booster Pack\"");					 //new pattern
 		Matcher m = p.matcher(jsonFromURL);
 		
 		int boosterPackDropped = 0;
@@ -23,22 +24,20 @@ public class Main {
 			++boosterPackDropped;
 		
 		String timeStamp = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss").format(Calendar.getInstance().getTime());
-		System.out.println(timeStamp + " > lizakfake"+account+": "+boosterPackDropped); //logging
-		return "lizakfake"+account+": "+boosterPackDropped;
+		System.out.println(timeStamp + " > "+account+": "+boosterPackDropped); //logging
+		return "ID "+account+": "+boosterPackDropped;
 	}
 	
 	public static void main(String[] args) {
+		//SteamIDs64 https://steamid.io/
+		final long[] steamID = {76561198082669058l, 76561198262069609l, 76561198269625175l, 76561198270204982l, 76561198269700897l, 76561198285164380l, 76561198286733504l, 76561198288290355l};
 		StringBuffer sb = new StringBuffer();
 		
-		//loop for check all account
-		for (int i = 1;i<=8;i++){
-			try {
-				sb.append(getInfo(i)+"\n");
-				if (i%3==0)
-					Thread.sleep(120001); //every 120 seconds delay
-			}catch (InterruptedException e) {e.printStackTrace();}
+		//getting data from accounts 
+		for (int i = 0;i<steamID.length;i++){
+			sb.append(getInfo(steamID[i])+"\n");
 		}	
 		//show in window
-		JOptionPane.showMessageDialog(null, sb, "Pakiety kart na fejk kontach", JOptionPane.INFORMATION_MESSAGE);	
+		JOptionPane.showMessageDialog(null, sb, "Booster Packs", JOptionPane.INFORMATION_MESSAGE);	
 	}
 }
