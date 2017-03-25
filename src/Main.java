@@ -24,7 +24,7 @@ public class Main {
 			++boosterPackDropped;
 		
 		String timeStamp = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss").format(Calendar.getInstance().getTime());
-		System.out.println(timeStamp + " > "+account+": "+boosterPackDropped); //logging
+		System.out.println(timeStamp + " > "+account+": "+boosterPackDropped); 	//logging
 		return "ID "+account+": "+boosterPackDropped;
 	}
 	
