@@ -1,0 +1,7 @@
+#All files starting name with .
+.*
+!.gitignore
+#All file ending with ~
+*~
+#Compiled .class files
+bin/
