@@ -17,7 +17,7 @@ public class Main {
 			e.printStackTrace();
 		}
 		
-		Pattern p = Pattern.compile("\"type\":\"Booster Pack\"");					 //new pattern
+		Pattern p = Pattern.compile("\"type\":\"Booster Pack\""); //new pattern
 		Matcher m = p.matcher(jsonFromURL);
 		
 		int boosterPackDropped = 0;
@@ -33,10 +33,10 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-		LinkedHashMap<Long, String> acc = AccountsFile.readAccounts(); 
+		LinkedHashMap<Long, String> acc = AccountsFile.readAccounts(System.getProperty("user.home")+"/acc.txt"); 
 		StringBuffer sb = new StringBuffer();
 		
-		for (Entry<Long, String> account : acc.entrySet()) //SteamIDs64 https://steamid.io/
+		for (Entry<Long, String> account : acc.entrySet())	//SteamIDs64 https://steamid.io/
 			sb.append(getInfo(account)+"\n");
 		
 		//show in window

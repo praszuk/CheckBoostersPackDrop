@@ -4,10 +4,10 @@ import java.util.LinkedHashMap;
 import java.util.Scanner;
 
 public class AccountsFile {
-	public static LinkedHashMap<Long, String> readAccounts() {
+	public static LinkedHashMap<Long, String> readAccounts(String path) {
 		Scanner sc = null;
 		try {
-			sc = new Scanner(new File("res/acc.txt"));
+			sc = new Scanner(new File(path));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
