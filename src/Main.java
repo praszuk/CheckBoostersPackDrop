@@ -15,15 +15,14 @@ public class Main {
 			jsonFromURL = UrlReader.getText("http://steamcommunity.com/inventory/"+account.getKey()+"/753/6?l=english&count=5000");
 		} catch (Exception e){
 			e.printStackTrace();
+			return account.getValue()+": private";
 		}
-		
 		Pattern p = Pattern.compile("\"type\":\"Booster Pack\""); //new pattern
 		Matcher m = p.matcher(jsonFromURL);
 		
 		int boosterPackDropped = 0;
 		while(m.find())
 			++boosterPackDropped;
-		
 		// Print and show
 		String timeStamp = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss").format(Calendar.getInstance().getTime());
 		System.out.println(timeStamp + " > "+account.getValue()+": "+boosterPackDropped); 	//logging
@@ -32,7 +31,7 @@ public class Main {
 	}
 	
 	public static void main(String[] args) {
-		
+		final long startTime = System.currentTimeMillis();
 		LinkedHashMap<Long, String> acc = AccountsFile.readAccounts(System.getProperty("user.home")+"/acc.txt"); 
 		StringBuffer sb = new StringBuffer();
 		
@@ -40,6 +39,7 @@ public class Main {
 			sb.append(getInfo(account)+"\n");
 		
 		//show in window
-		JOptionPane.showMessageDialog(null, sb, "Booster Packs", JOptionPane.INFORMATION_MESSAGE);	
+		JOptionPane.showMessageDialog(null, sb, "Booster Packs", JOptionPane.INFORMATION_MESSAGE);
+		System.out.println((System.currentTimeMillis()-startTime)/1000000000 + " seconds");
 	}
 }
