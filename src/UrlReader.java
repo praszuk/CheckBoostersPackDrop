@@ -1,16 +1,20 @@
-import java.net.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
-import java.io.*;
 
 public class UrlReader {
-	public static String getText(String url) throws Exception{
+	public static String getText(String url) throws IOException{
+		
 		//connecting to api link
 		URL steamSite = new URL(url);
 		HttpURLConnection connect = (HttpURLConnection)steamSite.openConnection();	
+		
 		//sending request "GET" and User Agent
 		connect.setRequestMethod("GET");
 		connect.setRequestProperty("User-Agent", "Mozilla/5.0");
-		//System.out.println(connect.getResponseCode());	//logging
 		
 		//getting stream
 		StringBuilder context = new StringBuilder();
