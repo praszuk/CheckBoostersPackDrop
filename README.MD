@@ -6,7 +6,6 @@ To use it. Create <i>acc.txt</i> file in your home directory. And fill using <a 
 76561198010062752 greuben
 ```
 
-http://steamcommunity.com/profiles/
 After this just launch .jar. You should get something like that:  
 
-![alt tag](http://imgur.com/a/hBUZG.jpg)
+![alt tag](http://i.imgur.com/l9F8gsh.png)
