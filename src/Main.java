@@ -16,9 +16,10 @@ public class Main {
 		//getting accounts from file
 		try {
 			acc = AccountsFile.readAccounts(path);
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+		} catch (FileNotFoundException e) { //If can't find file
+			System.out.println("File not found in " + path + " program terminating.");
 			JOptionPane.showMessageDialog(null, "File not found in: \n"+path, "Booster Packs", JOptionPane.INFORMATION_MESSAGE);
+			System.exit(1);
 		} 
 		
 		//getting data
