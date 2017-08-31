@@ -8,4 +8,4 @@ To use it. Create <i>acc.txt</i> file in your home directory. And fill using <a 
 
 After this just launch .jar. You should get something like that:  
 
-![alt tag](http://i.imgur.com/l9F8gsh.png)
+![Alt text](res/screenshots/v0.5.jpg?raw=true)
