@@ -58,9 +58,11 @@ public class Account {
 		JsonArray arr = obj.getAsJsonArray("descriptions");
 
 		int counter = 0;
-		for (JsonElement o : arr)
-			if(o.getAsJsonObject().get("type").toString().equals("\"Booster Pack\""))
-				++counter;
+
+		if (arr != null)
+			for (JsonElement o : arr)
+				if(o.getAsJsonObject().get("type").toString().equals("\"Booster Pack\""))
+					++counter;
 
 		boosterPacks = counter;
 	}

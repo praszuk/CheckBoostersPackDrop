@@ -14,7 +14,7 @@ public class UrlReader {
 
 		//sending request "GET" and User Agent
 		connect.setRequestMethod("GET");
-		connect.setRequestProperty("User-Agent", "Mozilla/5.0");
+		connect.setRequestProperty("User-Agent", "Chrome/44.0");
 
 		//getting stream
 		StringBuilder context = new StringBuilder();
