@@ -51,7 +51,7 @@ public class Account {
 	 *
 	 */
 	private void getDropNumber() throws IOException {
-		final String jsonFromURL = UrlReader.getText("http://steamcommunity.com/inventory/"+steamId64+"/753/6?l=english&count=5000");
+		final String jsonFromURL = UrlReader.getText("https://steamcommunity.com/inventory/"+steamId64+"/753/6?l=english&count=5000");
 
 		JsonElement elem = new JsonParser().parse(jsonFromURL);
 		JsonObject obj = elem.getAsJsonObject();
